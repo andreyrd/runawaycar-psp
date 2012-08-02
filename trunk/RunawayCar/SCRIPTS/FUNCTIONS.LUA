@@ -5,56 +5,47 @@ function unit(x, y, z)
 	return x / len, y / len, z / len
 end
 
+-- Game splash
 
-
--- I have rellocated your splash screen sprites and changed them up a bit to work better
--- Fly in from left
-
-function splashIn()
-	for i = -120, 0, 1 do 
-		
-		image.blit(splash_game, i * 4, 0) 
-		
-		-- Don't forget to include this frank.
+function gameSplashIn()
+	game_splash = image.load("SPLASH/GAME.PNG")
+	
+	for a = 0, 255, 5 do
+		image.blend(game_splash, 0, 0, a)
 		screen.flip()
 		screen.waitvblankstart()
 	end
 end
 
-function splashOut()
-	for i = 0, 120, 1 do 
-		image.blit(splash_game, i * 4, 0) 
-		
+function gameSplashOut()
+	for a = 255, 0, -5 do
+		image.blend(game_splash, 0, 0, a)
 		screen.flip()
 		screen.waitvblankstart()
-	end  
+	end
+	game_splash:free()
+	game_splash = nil
+	collectgarbage()
 end
-
 
 -- Display the mandatory NeoFlash splash screen
 
-function neoSplash()
+function neoSplashIn()
 	neo = image.load("SPLASH/NEOSPLASH.PNG")
 	
-	for a = 1, 136 do
-		image.blit(neo, 0, (a * 2) - 272)
+	for a = 0, 255, 5 do
+		image.blend(neo, 0, 0, a)
 		screen.flip()
 		screen.waitvblankstart()
 	end
-	
-	-- A delay...
-	
-	local a = 1
-	while a < 1000 do
-		a = a + 1
-	end
-	
-	for a = 136, 272 do
-		image.blit(neo, 0, (a * 2) - 272)
+end
+
+function neoSplashOut()
+	for a = 255, 0, -5 do
+		image.blend(neo, 0, 0, a)
 		screen.flip()
 		screen.waitvblankstart()
 	end
-	
 	neo:free()
 	neo = nil
 	collectgarbage()
@@ -63,23 +54,22 @@ end
 
 
 function setLighting()
-	world.perspective(75.0, 16.0/9.0, 01, 1000.0)
-	world.lighttype(1, 1)
-	world.lightcomponent(1, 2)
-	world.lightdiffuse(1, color.new(255, 255, 255))
-	world.lightambient(1, color.new(40,40,80))
-	world.lightspecular(1, color.new(255, 255, 255)) 
-	world.lightposition(1, 4, 4, 4)
-	world.lightdirection(1, -0.862, 0.267, -0.534)
-	world.lightenabled(1, true)
-	world.lightattenuation(0.1, 0, 0, 0.00000005)
-	world.lights(true)
-	world.ambient(color.new(80, 80, 100))
-	world.specular(1)
-
-	
-	world.fog(5, 50, color.new(100, 100, 100))
-	
+	world.lightenabled(2,true)
+	world.lightambient(2,color.new(255, 255, 255))
+	world.lightdiffuse(2,color.new(255, 255, 255))
+	world.lightspecular(2,color.new(255, 255, 255))
+	world.lighttype(2,2)
+	world.lightcomponent(2,1)
+	world.lightposition(2, PLAYER_POS, STREET_HEIGHT+10, -STREET_SIZE)
+	world.lightenabled(1,true)
+	world.lightambient(1,color.new(255, 255, 255))
+	world.lightdiffuse(1,color.new(255, 255, 255))
+	world.lightspecular(1,color.new(255, 255, 255))
+	world.lighttype(1,2)
+	world.lightcomponent(1,1)
+	world.lightposition(1, PLAYER_POS, STREET_HEIGHT+10, -STREET_SIZE)
+	world.ambient(color.new(255,255,255))
+	world.specular(color.new(255,255,255))
 	world.update()
 end
 

@@ -1,22 +1,13 @@
 os.luadevsplash();	
 
-
-
--- Don't forget quotation marks :P
-splash_game = image.load("splash/game.png")
-
-splashIn()
-
+neoSplashIn();
 
 -- Load all of the cars
 
-car_red = model.load("MODELS/CAR-RED.OBJ", color.new(0, 0, 0), 1)
-
-car_blue = model.load("MODELS/CAR-BLUE.OBJ", color.new(0, 0, 0), 1)
-car_yellow = model.load("MODELS/CAR-YELLOW.OBJ", color.new(0, 0, 0), 1)
-car_green = model.load("MODELS/CAR-GREEN.OBJ", color.new(0, 0, 0), 1)
 car_orange = model.load("MODELS/CAR-ORANGE.OBJ", color.new(0, 0, 0), 1)
 
+neoSplashOut();
+gameSplashIn();
 
 -- The different obstacles
 
@@ -36,8 +27,4 @@ street_obj = model.load("MODELS/ROAD.OBJ", color.new(0, 0, 0), 1)
 -- looking realistic game.
 -- Not trying to take the easy way out or nothing :P
 
--- Add delay here if needed...
-
--- I don't think a delay would be needed.
-
-splashOut()
+gameSplashOut();
