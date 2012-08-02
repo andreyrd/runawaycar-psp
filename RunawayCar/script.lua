@@ -12,8 +12,6 @@ dofile("SCRIPTS/SCROLL.LUA")
 
 -- Here looks like a good place to display the NeoFlash Splash screen.
 
-neoSplash()
-
 
 setLighting()
 
@@ -26,9 +24,11 @@ while true do
 	
 	-- Drawing a car, just to see how it looks
 	
-	car_green:position(PLAYER_POS, STREET_HEIGHT, -STREET_SIZE)
-	car_green:rotation(0, math.rad(180), 0)
-	car_green:blit()
+	car_orange:position(PLAYER_POS, STREET_HEIGHT, -STREET_SIZE)
+	car_orange:rotation(0, math.rad(180), 0)
+	car_orange:blit()
+	
+	world.update()
 	
 	screen.flip()
 	screen.waitvblankstart()
