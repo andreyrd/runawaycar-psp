@@ -7,18 +7,28 @@ dofile("SCRIPTS/FUNCTIONS.LUA")
 dofile("SCRIPTS/LOAD.LUA")
 
 -- This contains test functions for scrolling the street.
+
 dofile("SCRIPTS/SCROLL.LUA")
 
+-- Here looks like a good place to display the NeoFlash Splash screen.
 
---This will just show the street to make sure everything is alright
+neoSplash()
+
+
+setLighting()
+
+-- This will just show the street to make sure everything is alright
+
 while true do
 	screen.clear()
-	drawStreet(PLAYER_POS, STREET_HEIGHT, -10)
-	drawStreet(PLAYER_POS, STREET_HEIGHT, -20)
-	drawStreet(PLAYER_POS, STREET_HEIGHT, -30)
-	drawStreet(PLAYER_POS, STREET_HEIGHT, -40)
-	drawStreet(PLAYER_POS, STREET_HEIGHT, -50)
-	drawStreet(PLAYER_POS, STREET_HEIGHT, -60)
+	
+	scrollStreet()
+	
+	-- Drawing a car, just to see how it looks
+	
+	car_green:position(PLAYER_POS, STREET_HEIGHT, -STREET_SIZE)
+	car_green:rotation(0, math.rad(180), 0)
+	car_green:blit()
 	
 	screen.flip()
 	screen.waitvblankstart()
