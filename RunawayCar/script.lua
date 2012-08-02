@@ -2,6 +2,8 @@
 
 -- Load all of the scripts.
 
+dofile("SCRIPTS/FUNCTIONS.LUA")
+
 dofile("SCRIPTS/LOAD.LUA")
 
 -- This contains test functions for scrolling the street.
