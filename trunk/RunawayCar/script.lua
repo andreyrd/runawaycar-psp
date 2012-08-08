@@ -13,7 +13,9 @@ dofile("SCRIPTS/SCROLL.LUA")
 -- Here looks like a good place to display the NeoFlash Splash screen.
 
 
-setLighting()
+drawLight(1, 0, 10, -60)
+
+os.cpu(333)
 
 -- This will just show the street to make sure everything is alright
 

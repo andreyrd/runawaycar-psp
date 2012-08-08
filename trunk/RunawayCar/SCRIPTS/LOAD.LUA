@@ -7,6 +7,8 @@ neoSplashIn();
 car_orange = model.load("MODELS/CAR-ORANGE.OBJ", color.new(0, 0, 0), 1)
 
 neoSplashOut();
+
+
 gameSplashIn();
 
 -- The different obstacles
