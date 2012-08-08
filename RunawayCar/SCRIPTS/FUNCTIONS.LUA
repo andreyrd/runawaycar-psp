@@ -53,23 +53,16 @@ end
 	
 
 
-function setLighting()
-	world.lightenabled(2,true)
-	world.lightambient(2,color.new(255, 255, 255))
-	world.lightdiffuse(2,color.new(255, 255, 255))
-	world.lightspecular(2,color.new(255, 255, 255))
-	world.lighttype(2,2)
-	world.lightcomponent(2,1)
-	world.lightposition(2, PLAYER_POS, STREET_HEIGHT+10, -STREET_SIZE)
-	world.lightenabled(1,true)
-	world.lightambient(1,color.new(255, 255, 255))
-	world.lightdiffuse(1,color.new(255, 255, 255))
-	world.lightspecular(1,color.new(255, 255, 255))
-	world.lighttype(1,2)
-	world.lightcomponent(1,1)
-	world.lightposition(1, PLAYER_POS, STREET_HEIGHT+10, -STREET_SIZE)
-	world.ambient(color.new(255,255,255))
-	world.specular(color.new(255,255,255))
+function drawLight(n, x, y, z)
+	world.lighttype(n, 2)
+	world.lightcomponent(n, 1)
+	world.lightambient(n, color.new(255, 255, 255))
+	world.lightposition(n, x, y, z)
+	world.lightenabled(n, true)
+	world.lightattenuation(n, 0, 0, 0.0000005)
+	world.lights(true)
+	world.ambient(color.new(0, 0, 0))
+	world.specular(4.04)
 	world.update()
 end
 
