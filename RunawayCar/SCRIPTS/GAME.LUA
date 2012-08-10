@@ -20,5 +20,3 @@ end
 if(SIDEWALK_HIT == 1 and (PLAYER_POS == 2.75 or PLAYER_POS == -2.75)) then
 	SIDEWALK_HIT = 0
 end
-	
-world.update()

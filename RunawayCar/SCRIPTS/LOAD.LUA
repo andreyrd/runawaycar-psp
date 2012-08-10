@@ -4,7 +4,7 @@ neoSplashIn();
 
 -- Load all of the cars
 
-car_orange = model.load("MODELS/CAR-ORANGE.OBJ", color.new(0, 0, 0), 1)
+car_orange = model.load("MODELS/CAR_ORANGE.OBJ", color.new(0, 0, 0), 1)
 
 neoSplashOut();
 
@@ -20,7 +20,7 @@ trashcan_obj = model.load("MODELS/TRASHCAN.OBJ", color.new(0, 0, 0), 1)
 
 -- the different street objects
 
-turn_obj = model.load("MODELS/ROAD-TURN.OBJ", color.new(0, 0, 0), 1)
+turn_obj = model.load("MODELS/ROAD_TURN.OBJ", color.new(0, 0, 0), 1)
 street_obj = model.load("MODELS/ROAD.OBJ", color.new(0, 0, 0), 1)
 
 -- Note.
