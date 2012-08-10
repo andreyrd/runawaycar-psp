@@ -19,18 +19,15 @@ os.cpu(333)
 
 -- This will just show the street to make sure everything is alright
 
+gamemode = 1
+
 while true do
 	screen.clear()
-	
-	scrollStreet()
-	
-	-- Drawing a car, just to see how it looks
-	
-	car_orange:position(PLAYER_POS, STREET_HEIGHT, -STREET_SIZE)
-	car_orange:rotation(0, math.rad(180), 0)
-	car_orange:blit()
-	
-	world.update()
+	controls.read()
+
+	if(gamemode==1) then
+		dofile("SCRIPTS/GAME.LUA")
+	end
 	
 	screen.flip()
 	screen.waitvblankstart()

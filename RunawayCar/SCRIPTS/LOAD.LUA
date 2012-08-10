@@ -29,4 +29,7 @@ street_obj = model.load("MODELS/ROAD.OBJ", color.new(0, 0, 0), 1)
 -- looking realistic game.
 -- Not trying to take the easy way out or nothing :P
 
+-- Some variables
+SIDEWALK_HIT = 0
+
 gameSplashOut();

@@ -1,0 +1,24 @@
+scrollStreet()
+	
+car_orange:position(PLAYER_POS, STREET_HEIGHT, -STREET_SIZE)
+car_orange:rotation(0, math.rad(180), 0)
+car_orange:blit()
+
+if(controls.left() and PLAYER_POS > -5.5) then
+	PLAYER_POS = PLAYER_POS - (SPEED * 3)
+end
+if(controls.right() and PLAYER_POS < 5.5) then
+	PLAYER_POS = PLAYER_POS + (SPEED * 3)
+end
+
+-- Sidewalk damage code
+if(SIDEWALK_HIT == 0 and (PLAYER_POS == 3.5 or PLAYER_POS == -3.5)) then
+	SIDEWALK_HIT = 1 -- Once they get the damage, they won't get it anymore, to prevent infinite damage from sidewalk
+	-- DAMAGE = DAMAGE + 0.1
+end
+-- If they get off the sidewalk, they can get sidewalk damage again
+if(SIDEWALK_HIT == 1 and (PLAYER_POS == 2.75 or PLAYER_POS == -2.75)) then
+	SIDEWALK_HIT = 0
+end
+	
+world.update()
