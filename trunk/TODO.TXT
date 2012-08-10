@@ -1,0 +1,44 @@
+To-do
+Runaway Car
+PSP
+frankdrey
+10$man
+
+
+
+
+Menu
+
+-> Buttons
+-> Interaction
+-> Incorporation with the rest of the code
+
+
+
+Shop
+
+-> Money
+-> Interaction
+
+-> -> Car selection
+-> -> Update to master code
+
+-> Incorporation with the rest of the code
+
+
+
+Gameplay
+
+-> Fix Drawing glitches
+-> Car movement and steering
+-> Obstacles
+-> Collisions
+-> Coins
+-> Health + HUD
+
+
+
+
+
+
+-Please edit how you see fit.

@@ -89,6 +89,7 @@ end
 
 function drawStreet(x, y, z)
 	street_obj:position(x, y, z)
+	street_obj:rotation(math.rad(90), 0, 0)
 	street_obj:blit()
 end
 
