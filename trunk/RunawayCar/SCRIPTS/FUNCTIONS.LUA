@@ -100,7 +100,7 @@ function scrollStreet()
 	-- Draw the different street segments
 
 	for a = 1, 6 do
-		drawStreet(PLAYER_POS, STREET_HEIGHT, STREET_POS - STREET_SIZE * a)
+		drawStreet(STREET_POS_X, STREET_HEIGHT, STREET_POS - STREET_SIZE * a)
 	end
 
 	-- Scroll them at the speed of SPEED
