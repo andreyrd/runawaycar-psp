@@ -23,14 +23,22 @@ trashcan_obj = model.load("MODELS/TRASHCAN.OBJ")
 turn_obj = model.load("MODELS/ROAD_TURN.OBJ")
 street_obj = model.load("MODELS/ROAD.OBJ")
 
--- Note.
--- I add a black outline because that gives the object a cartoony look
--- It's much easier to make a good looking cartoony game then a good
--- looking realistic game.
--- Not trying to take the easy way out or nothing :P
-
-
-gameSplashOut();
-
 -- Some variables
 SIDEWALK_HIT = 0
+
+STREET_HEIGHT = -5
+STREET_SIZE = 10
+STREET_POS = 0
+STREET_POS_X = 0
+
+-- This is the players speed
+SPEED = 0.40
+PLAYER_POS = 0
+PLAYER_HEIGHT = STREET_HEIGHT
+
+gamemode = 0
+
+moved = 0
+moved_counter = 0
+
+gameSplashOut();

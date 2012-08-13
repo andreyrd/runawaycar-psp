@@ -19,14 +19,14 @@ os.cpu(333)
 
 -- This will just show the street to make sure everything is alright
 
-gamemode = 1
-
 while true do
 	screen.clear()
 	controls.read()
 
 	if(gamemode==1) then
 		dofile("SCRIPTS/GAME.LUA")
+	else
+		dofile("SCRIPTS/MENU.LUA")
 	end
 	
 	screen.flip()
