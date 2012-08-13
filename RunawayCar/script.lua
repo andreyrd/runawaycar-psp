@@ -13,7 +13,7 @@ dofile("SCRIPTS/SCROLL.LUA")
 -- Here looks like a good place to display the NeoFlash Splash screen.
 
 
-drawLight(1, 0, 10, -60)
+drawLight(1, 0, 5, -50)
 
 os.cpu(333)
 

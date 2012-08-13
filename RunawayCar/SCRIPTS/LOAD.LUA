@@ -4,7 +4,7 @@ neoSplashIn();
 
 -- Load all of the cars
 
-car_orange = model.load("MODELS/CAR_ORANGE.OBJ", color.new(0, 0, 0), 1)
+car_orange = model.load("MODELS/CAR_ORANGE.OBJ")
 
 neoSplashOut();
 
@@ -13,15 +13,15 @@ gameSplashIn();
 
 -- The different obstacles
 
-cone_obj = model.load("MODELS/CONE.OBJ", color.new(0, 0, 0), 1)
-dumpster_obj = model.load("MODELS/GREENDUMPSTER.OBJ", color.new(0, 0, 0), 1)
-trashcan_obj = model.load("MODELS/TRASHCAN.OBJ", color.new(0, 0, 0), 1)
+-- cone_obj = model.load("MODELS/CONE.OBJ")
+dumpster_obj = model.load("MODELS/GREENDUMPSTER.OBJ")
+trashcan_obj = model.load("MODELS/TRASHCAN.OBJ")
 
 
 -- the different street objects
 
-turn_obj = model.load("MODELS/ROAD_TURN.OBJ", color.new(0, 0, 0), 1)
-street_obj = model.load("MODELS/ROAD.OBJ", color.new(0, 0, 0), 1)
+turn_obj = model.load("MODELS/ROAD_TURN.OBJ")
+street_obj = model.load("MODELS/ROAD.OBJ")
 
 -- Note.
 -- I add a black outline because that gives the object a cartoony look
@@ -29,7 +29,8 @@ street_obj = model.load("MODELS/ROAD.OBJ", color.new(0, 0, 0), 1)
 -- looking realistic game.
 -- Not trying to take the easy way out or nothing :P
 
--- Some variables
-SIDEWALK_HIT = 0
 
 gameSplashOut();
+
+-- Some variables
+SIDEWALK_HIT = 0
