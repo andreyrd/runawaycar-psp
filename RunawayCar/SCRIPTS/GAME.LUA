@@ -1,9 +1,3 @@
-scrollStreet()
-	
-car_orange:position(PLAYER_POS, CAR_HEIGHT, -STREET_SIZE)
-car_orange:rotation(0, 0, 0)
-car_orange:blit()
-
 if(controls.left() and PLAYER_POS > -5.5) then
 	PLAYER_POS = PLAYER_POS - (SPEED * 2)
 end
