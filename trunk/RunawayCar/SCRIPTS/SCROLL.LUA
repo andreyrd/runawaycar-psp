@@ -1,7 +1,7 @@
 currentRoad = {}
 
 
-for a = 1, 7 do
+for a = 1, 5 do
 	currentRoad[a] = {}
 end
 
