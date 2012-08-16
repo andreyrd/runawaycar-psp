@@ -10,10 +10,15 @@ dofile("SCRIPTS/LOAD.LUA")
 
 dofile("SCRIPTS/SCROLL.LUA")
 
+
+dofile("SCRIPTS/GAME.LUA")
+dofile("SCRIPTS/MENU.LUA")
+dofile("SCRIPTS/PAUSE.LUA")
+dofile("SCRIPTS/OPTIONS.LUA")
 -- Here looks like a good place to display the NeoFlash Splash screen.
 
 
-drawLight(1, 0, 5, -50)
+drawLight(1, 0, 11, -51)
 
 os.cpu(333)
 
@@ -22,25 +27,30 @@ os.cpu(333)
 sound.play(MSC)
 
 while true do
-	screen.clear()
+	screen.clear(color.new(135, 206, 250))
 	controls.read()
 	
-	if sound.playing(MSC) == false then
-		sound.play(MSC)
-	end
+	loopMusic()
 	
 	car_orange:position(PLAYER_POS, PLAYER_HEIGHT, -STREET_SIZE)
-	car_orange:rotation(0, 0, 0)
+	car_orange:rotation(0, Y_ROT, 0)
 	car_orange:blit()
+	
+	
 	
 	scrollStreet()
 	
-	if(gamemode==1) then
-		dofile("SCRIPTS/GAME.LUA")
-	else
-		dofile("SCRIPTS/MENU.LUA")
-	end
+	scrollClouds()
 	
+	if gamemode == 2 then
+		game()
+	elseif gamemode == 1 then
+		menu()
+	elseif gamemode == 3 then
+		pause()
+	elseif gamemode == 4 then
+		options()
+	end
 	screen.flip()
 	screen.waitvblankstart()
 end
