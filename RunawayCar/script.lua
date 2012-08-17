@@ -15,8 +15,9 @@ dofile("SCRIPTS/GAME.LUA")
 dofile("SCRIPTS/MENU.LUA")
 dofile("SCRIPTS/PAUSE.LUA")
 dofile("SCRIPTS/OPTIONS.LUA")
+dofile("SCRIPTS/CAR_SELECT.LUA")
+dofile("SCRIPTS/CRASH.LUA")
 -- Here looks like a good place to display the NeoFlash Splash screen.
-
 
 drawLight(1, 0, 11, -51)
 
@@ -32,10 +33,6 @@ while true do
 	
 	loopMusic()
 	
-	car_orange:position(PLAYER_POS, PLAYER_HEIGHT, -STREET_SIZE)
-	car_orange:rotation(0, Y_ROT, 0)
-	car_orange:blit()
-	
 	
 	
 	scrollStreet()
@@ -44,12 +41,31 @@ while true do
 	
 	if gamemode == 2 then
 		game()
+		CAR:position(PLAYER_POS, PLAYER_HEIGHT, -STREET_SIZE)
+		CAR:rotation(0,Y_ROT, 0)
+		CAR:blit()
 	elseif gamemode == 1 then
 		menu()
+		CAR:position(PLAYER_POS, PLAYER_HEIGHT, -STREET_SIZE)
+		CAR:rotation(0,Y_ROT, 0)
+		CAR:blit()
 	elseif gamemode == 3 then
 		pause()
+		CAR:position(PLAYER_POS, PLAYER_HEIGHT, -STREET_SIZE)
+		CAR:rotation(0,Y_ROT, 0)
+		CAR:blit()
 	elseif gamemode == 4 then
 		options()
+		CAR:position(PLAYER_POS, PLAYER_HEIGHT, -STREET_SIZE)
+		CAR:rotation(0,Y_ROT, 0)
+		CAR:blit()
+	elseif gamemode == 5 then
+		carSelect()
+		CAR:position(PLAYER_POS, PLAYER_HEIGHT, -STREET_SIZE)
+		CAR:rotation(0,Y_ROT, 0)
+		CAR:blit()
+	elseif gamemode == 100 then
+		crashed()
 	end
 	screen.flip()
 	screen.waitvblankstart()

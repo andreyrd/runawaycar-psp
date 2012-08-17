@@ -7,7 +7,8 @@ neoSplashIn();
 
 -- Load all of the cars
 
-car_orange = model.load("MODELS/CAR_ORANGE.OBJ")
+CAR = model.load("MODELS/Car_blue.obj")
+
 
 neoSplashOut();
 
@@ -50,12 +51,12 @@ STREET_POS_X = 0
 SPEED = 0.25
 PLAYER_POS = 0
 PLAYER_HEIGHT = STREET_HEIGHT
+CAR_SIZE = 3.65
 Y_ROT = 0
 
 MAX_SPEED = 2
 
 DAMAGE = 0
-
 
 SCORE = 0
 
@@ -70,6 +71,24 @@ select = 2
 
 --options
 option_select = 1
+
+
+--Cars
+cars = {}
+cars[1] = {"Blue Demon", 1}
+cars[2] = {"Green Prize", 0}
+cars[3] = {"Red Blazer", 0}
+cars[4] = {"Slick Black", 0}
+
+cars_unlocked = 1
+
+current_car = 1
+
+--Money
+points = 6001
+
+highscore = 0
+
 
 --Clouds
 CLOUD = {}

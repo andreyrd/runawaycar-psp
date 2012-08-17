@@ -8,7 +8,7 @@ function game()
 		end
 	end
 
-	if controls.right() and PLAYER_POS < 5.5 then
+	if controls.right()then
 		if PLAYER_POS < 5.5 then
 			PLAYER_POS = PLAYER_POS + 0.25
 			Y_ROT = math.rad(355)
@@ -40,12 +40,33 @@ function game()
 		SIDEWALK_HIT = 0
 	end
 
+	
+	--Check for collisions with objects
+	for a = 1, #OBJECT do
+		if OBJECT[a][1] == 1 then
+			if OBJECT[a][2] > PLAYER_POS - 2.75 and OBJECT[a][2] < PLAYER_POS + 2.75 and OBJECT[a][3] > -STREET_SIZE - 2 and OBJECT[a][3] < -10 then
+				DAMAGE = DAMAGE + 25
+				OBJECT[a][2] = -200
+			end
+		elseif OBJECT[a][1] == 2 then
+			if OBJECT[a][2] > PLAYER_POS - 1.25 and OBJECT[a][2] < PLAYER_POS + 1.25 and OBJECT[a][3] > -STREET_SIZE - 2 and OBJECT[a][3] < -10 then
+				DAMAGE = DAMAGE + 50
+				OBJECT[a][2] = -200
+			end
+		elseif OBJECT[a][1] == 3 then
+			if OBJECT[a][2] > PLAYER_POS - 2.75 and OBJECT[a][2] < PLAYER_POS + 2.75 and OBJECT[a][3] > -STREET_SIZE - 2 and OBJECT[a][3] < -10 then
+				DAMAGE = DAMAGE + 50
+				OBJECT[a][2] = -200
+			end
+		end
+	end
+	
 	if timer > 0 then
 		screen.print(string.len("Speed up!")/2 * 12, 240, "Speed Up!", color.new(0, 0, 0))
 		timer = timer - 1
 	end
 	
-	screen.print(350, 0, "MPH: " .. SPEED * 100, color.new(255, 255, 255))
+	screen.print(350, 250, "MPH: " .. SPEED * 100, color.new(255, 255, 255))
 
 	--Add score
 	SCORE = SCORE + 1
@@ -56,33 +77,39 @@ function game()
 	scrollObject()
 	
 	
-	if SCORE == 500 then
+	if SCORE == 1000 then
 		SPEED = 0.5
 		timer = 50
 	end
-	if SCORE == 1000 then
+	if SCORE == 2000 then
 		SPEED = 0.75
 		timer = 50
 	end
-	if SCORE == 1500 then
+	if SCORE == 3000 then
 		SPEED = 1
 		timer = 50
 	end
-	if SCORE == 2000 then
+	if SCORE == 4000 then
 		SPEED = 1.25
 		timer = 50
 	end
-	if SCORE == 2500 then
+	if SCORE == 5000 then
 		SPEED = 1.5
 		timer = 50
 	end
-	if SCORE == 3000 then
+	if SCORE == 6000 then
 		SPEED = 1.75
 		timer = 50
 	end
-	if SCORE > 3500 then
+	if SCORE > 7000 then
 		SPEED = 2
 		screen.print(200, 240, "Final Speed! Double Points!")
 		SCORE = SCORE + 1
+	end
+	
+	
+	--Are you dead?
+	if DAMAGE >= 100 then
+		gamemode = 100
 	end
 end

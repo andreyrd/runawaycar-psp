@@ -7,7 +7,7 @@ function menu()
 		select = select - 1
 	end
 
-	if(controls.right("right") and select < 3) then
+	if(controls.press("right") and select < 3) then
 		for a = 1, 4 do
 			PLAYER_POS = PLAYER_POS + 1 / a
 		end
@@ -18,6 +18,10 @@ function menu()
 
 	if select == 1 then
 		if controls.press("cross") then
+			SPEED = 0.25
+			PLAYER_POS = 0
+			SCORE = 0
+			DAMAGE = 0
 			gamemode = 2
 		end
 		screen.print(240 - string.len("Play")/2 * 16, 120, "Play", color.new(0, 0, 255))
