@@ -233,4 +233,24 @@ end
 
 
 
-	
+function saveGame()
+	DATA = {highscore, points, cars[1][2], cars[2][2], cars[3][2], cars[4][2], cars_unlocked}
+	DATA_SAVE = string.implode(DATA, "%")
+	saveplace = {gameid="DEMODEV", savenames="RunawayCar"}
+	saveconfig = {title="Runaway Car Save", subtitle=os.date(), details="Cars Unlocked: " .. cars_unlocked .. "\nHighscore: " .. highscore, savetext="New stuff!"}
+	done, where = savedata.save(saveplace,saveconfig,DATA_SAVE)
+	if done then
+		return where
+	else
+		return nil
+	end
+end
+
+function loadGame()
+	saveplace = {gameid="DEMODEV", savenames="RunawayCar"};
+	done, where, what = savedata.load(saveplace);
+	if done then
+		what = string.explode(what, "%")
+		return what
+	end
+end
