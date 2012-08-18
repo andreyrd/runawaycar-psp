@@ -1,5 +1,5 @@
 function carSelect()
-	screen.print(0, 350, "Points: " .. points, color.new(255, 255, 255))
+	screen.print(350, 2, "Points: " .. points, color.new(255, 255, 255))
 	if current_car == option_select then
 		screen.print(0, 240, cars[option_select][1], color.new(255, 255, 255))
 	else

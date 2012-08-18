@@ -3,12 +3,12 @@ function options()
 	screen.print(0, 12, "Frankdrey - Models, Menus, Misc. Code", color.new(0, 0, 0))
 	screen.print(0, 24, "10$man - Gameplay", color.new(0, 0, 0))
 	screen.print(0, 36, "spereksta - Music", color.new(0, 0, 0))
-	screen.print(0, 56, "Press Cross to return to menu", color.new(0, 0, 0))
+	screen.print(0, 56, "Press Circle to return to menu", color.new(0, 0, 0))
 	screen.print(0, 80, "Press select to bring up the save dialogue", color.new(0, 0, 0))
 	screen.print(0, 92, "Press start to load your save", color.new(0, 0, 0))
 	screen.print(0, 68, "Press Triangle to goto the car garage", color.new(0, 0, 0))
 
-	if controls.press("cross") then
+	if controls.press("circle") then
 		gamemode = 1
 	end
 	
