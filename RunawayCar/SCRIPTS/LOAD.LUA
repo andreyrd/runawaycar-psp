@@ -26,6 +26,7 @@ roadblock_obj = model.load("MODELS/ROADBLOCK_GRAY.OBJ")
 
 turn_obj = model.load("MODELS/ROAD_TURN.OBJ")
 street_obj = model.load("MODELS/ROAD.OBJ")
+coin_obj = model.load("MODELS/COIN.OBJ")
 
 
 -- Scenery :)
@@ -38,6 +39,12 @@ buildingL_obj = model.load("MODELS/BUILDING2.OBJ")
 -- Music
 MSC = sound.load("MUSIC/CHASE.MP3")
 MSC_ON = 1
+
+DING = sound.load("MUSIC/DING.WAV")
+
+CRASH_SND = sound.load("MUSIC/CRASH.WAV")
+SMALL_CRASH = sound.load("MUSIC/SMALL_CRASH.WAV")
+
 -- Some variables
 SIDEWALK_HIT = 0
 
@@ -85,7 +92,8 @@ cars_unlocked = 1
 current_car = 1
 
 --Money
-points = 6001
+points = 0
+points_multiplier = 1
 
 highscore = 0
 
@@ -101,5 +109,12 @@ CLOUD[3] = {math.random(-10, 10), math.random(2, 15), math.random(-40, -50)}
 OBJECT = {}
 OBJECT[1] = {math.random(1, 3), math.random(-5, 5), -STREET_SIZE * 6}
 OBJECT[2] = {math.random(1, 3), math.random(-5, 5), -STREET_SIZE * 9}
+
+COIN = {}
+COIN[1] = {OBJECT[1][2], OBJECT[1][3] - STREET_SIZE}
+for a = 2, 8 do
+	COIN[a] = {COIN[a - 1][1], COIN[a - 1][2] - STREET_SIZE / 8}
+end
+COIN_SPIN = 1
 
 gameSplashOut();

@@ -45,19 +45,30 @@ function game()
 	for a = 1, #OBJECT do
 		if OBJECT[a][1] == 1 then
 			if OBJECT[a][2] > PLAYER_POS - 2.75 and OBJECT[a][2] < PLAYER_POS + 2.75 and OBJECT[a][3] > -STREET_SIZE - 2 and OBJECT[a][3] < -10 then
-				DAMAGE = DAMAGE + 25
+				DAMAGE = DAMAGE + 50
 				OBJECT[a][2] = -200
+				sound.play(SMALL_CRASH, 2)
 			end
 		elseif OBJECT[a][1] == 2 then
 			if OBJECT[a][2] > PLAYER_POS - 1.25 and OBJECT[a][2] < PLAYER_POS + 1.25 and OBJECT[a][3] > -STREET_SIZE - 2 and OBJECT[a][3] < -10 then
-				DAMAGE = DAMAGE + 50
+				DAMAGE = DAMAGE + 25
 				OBJECT[a][2] = -200
+				sound.play(SMALL_CRASH, 2)
 			end
 		elseif OBJECT[a][1] == 3 then
 			if OBJECT[a][2] > PLAYER_POS - 2.75 and OBJECT[a][2] < PLAYER_POS + 2.75 and OBJECT[a][3] > -STREET_SIZE - 2 and OBJECT[a][3] < -10 then
 				DAMAGE = DAMAGE + 50
 				OBJECT[a][2] = -200
+				sound.play(SMALL_CRASH, 2)
 			end
+		end
+	end
+	
+	for a = 1, #COIN do
+		if COIN[a][1] > PLAYER_POS - 1.25 and COIN[a][1] < PLAYER_POS + 1.25 and COIN[a][2] > -STREET_SIZE - 2 and COIN[a][2] < -10 then
+			points = points + points_multiplier
+			COIN[a][1] = -200
+			sound.play(DING, 2)
 		end
 	end
 	
@@ -71,11 +82,16 @@ function game()
 	--Add score
 	SCORE = SCORE + 1
 
-	drawDamage(2, 2, 200, 20)
+	drawDamage(2, 2, 200, 5)
 	drawScore(300, 2)
+	screen.print(300, 14, "Points: " .. points, color.new(234, 143, 35))
 
 	scrollObject()
+	scrollCoins()
 	
+	if SCORE < 1000 then
+		points_multiplier = 1
+	end
 	
 	if SCORE == 1000 then
 		SPEED = 0.5
@@ -88,6 +104,7 @@ function game()
 	if SCORE == 3000 then
 		SPEED = 1
 		timer = 50
+		points_multiplier = 2
 	end
 	if SCORE == 4000 then
 		SPEED = 1.25
@@ -103,13 +120,15 @@ function game()
 	end
 	if SCORE > 7000 then
 		SPEED = 2
-		screen.print(200, 240, "Final Speed! Double Points!")
+		screen.print(200, 240, "Final Speed! Triple Points!")
 		SCORE = SCORE + 1
+		points_multiplier = 3
 	end
 	
 	
 	--Are you dead?
 	if DAMAGE >= 100 then
 		gamemode = 100
+		sound.play(CRASH_SND, 2)
 	end
 end

@@ -88,7 +88,7 @@ end
 
 function drawStreet(x, y, z)
 	street_obj:position(x, y, z)
-	street_obj:rotation(math.rad(90), 0, 0)
+	street_obj:rotation(math.rad(180), 0, 0)
 	street_obj:blit()
 end
 
@@ -143,9 +143,25 @@ function drawRoadblock(x, z)
 	else
 		roadblock_obj:position(x, STREET_HEIGHT, z)
 	end
+	roadblock_obj:rotation(math.rad(270), 0, 0)
 	roadblock_obj:blit()
 end
 
+--Draws a coin
+function drawCoin(x, z)
+	if x < -3.5 or x > 3.5 then
+		coin_obj:position(x, STREET_HEIGHT + 0.5, z)
+	else
+		coin_obj:position(x, STREET_HEIGHT, z)
+	end
+	COIN_SPIN = COIN_SPIN + 0.5
+	if COIN_SPIN > 360 then
+		COIN_SPIN = 1
+	end
+	
+	coin_obj:rotation(0, math.rad(COIN_SPIN), 0)
+	coin_obj:blit()
+end
 -- This function should just cause the street to keep scrolling.
 
 function scrollStreet()
@@ -211,10 +227,26 @@ function scrollObject()
 	end
 end
 
+--Scroll Coins
+function scrollCoins()
+	for a = 1, 8 do
+		if COIN[a][2] > 0 then
+			if a == 1 then
+				COIN[a][1] = OBJECT[1][2]
+				COIN[a][2] = OBJECT[1][3] - STREET_SIZE
+			else
+				COIN[a][1] = COIN[a - 1][1]
+				COIN[a][2] = COIN[a - 1][2] - (STREET_SIZE * 2) / 8
+			end
+		end
+		COIN[a][2] = COIN[a][2] + SPEED
+		drawCoin(COIN[a][1], COIN[a][2])
+	end
+end
 
 function loopMusic()
 	if sound.playing(MSC) == false then
-		sound.play(MSC)
+		sound.play(MSC, 1)
 	end
 end
 
@@ -237,7 +269,7 @@ function saveGame()
 	DATA = {highscore, points, cars[1][2], cars[2][2], cars[3][2], cars[4][2], cars_unlocked}
 	DATA_SAVE = string.implode(DATA, "%")
 	saveplace = {gameid="DEMODEV", savenames="RunawayCar"}
-	saveconfig = {title="Runaway Car Save", subtitle=os.date(), details="Cars Unlocked: " .. cars_unlocked .. "\nHighscore: " .. highscore, savetext="New stuff!"}
+	saveconfig = {title="Runaway Car Save", subtitle=os.date(), details="Cars Unlocked: " .. cars_unlocked .. "\nHighscore: " .. highscore .. "\nPoints: " .. points, savetext="New stuff!"}
 	done, where = savedata.save(saveplace,saveconfig,DATA_SAVE)
 	if done then
 		return where

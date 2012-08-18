@@ -25,7 +25,7 @@ os.cpu(333)
 
 -- This will just show the street to make sure everything is alright
 
-sound.play(MSC)
+sound.play(MSC, 1)
 
 while true do
 	screen.clear(color.new(135, 206, 250))
