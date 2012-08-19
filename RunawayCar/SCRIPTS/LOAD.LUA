@@ -9,6 +9,7 @@ neoSplashIn();
 
 CAR = model.load("MODELS/Car_blue.obj")
 
+GRAF = font.load("degrassi.pgf")
 
 neoSplashOut();
 
@@ -45,6 +46,8 @@ DING = sound.load("MUSIC/DING.WAV")
 CRASH_SND = sound.load("MUSIC/CRASH.WAV")
 SMALL_CRASH = sound.load("MUSIC/SMALL_CRASH.WAV")
 
+SCREECH = sound.load("MUSIC/SCREECH.WAV")
+
 -- Some variables
 SIDEWALK_HIT = 0
 
@@ -56,7 +59,7 @@ STREET_POS_X = 0
 
 -- Player Variables
 SPEED = 0.25
-PLAYER_POS = 0
+PLAYER_POS = -3
 PLAYER_HEIGHT = STREET_HEIGHT
 CAR_SIZE = 3.65
 Y_ROT = 0
@@ -73,7 +76,7 @@ timer = 0
 -- Menu
 gamemode = 1
 
-select = 2
+select = 1
 
 
 --options

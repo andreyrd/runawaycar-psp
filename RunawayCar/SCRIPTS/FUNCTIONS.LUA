@@ -115,10 +115,14 @@ end
 
 --Draws a Dumpster
 function drawDumpster(x, z)
-	if x < -3.5 or x > 3.5 then
+	if x < -3.5 then
+		dumpster_obj:rotation(0, math.rad(270), 0)
+		dumpster_obj:position(x, STREET_HEIGHT + 0.5, z)
+	elseif x > 3.5 then
 		dumpster_obj:rotation(0, math.rad(90), 0)
 		dumpster_obj:position(x, STREET_HEIGHT + 0.5, z)
 	else
+		dumpster_obj:rotation(0, math.rad(180), 0)
 		dumpster_obj:position(x, STREET_HEIGHT, z)
 	end
 	dumpster_obj:blit()
@@ -259,7 +263,7 @@ end
 
 
 function drawScore(x, y)
-	screen.print(x, y, "Score: " .. SCORE, color.new(234, 143, 35))
+	screen.print(GRAF, x, y, "Score: " .. SCORE, color.new(234, 143, 35))
 end
 
 

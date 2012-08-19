@@ -5,6 +5,7 @@ function game()
 			Y_ROT = math.rad(5)
 		else
 			DAMAGE = DAMAGE + 2
+			sound.play(SCREECH, 3)
 		end
 	end
 
@@ -14,6 +15,7 @@ function game()
 			Y_ROT = math.rad(355)
 		else
 			DAMAGE = DAMAGE + 2
+			sound.play(SCREECH, 3)
 		end
 	end
 
@@ -23,7 +25,6 @@ function game()
 	
 	if controls.press("start") then
 		gamemode = 3
-		PLAYER_POS = 0
 	end
 
 	-- Sidewalk damage code
@@ -43,8 +44,9 @@ function game()
 	
 	--Check for collisions with objects
 	for a = 1, #OBJECT do
+		sound.volume(SMALL_CRASH, 50)
 		if OBJECT[a][1] == 1 then
-			if OBJECT[a][2] > PLAYER_POS - 2.75 and OBJECT[a][2] < PLAYER_POS + 2.75 and OBJECT[a][3] > -STREET_SIZE - 2 and OBJECT[a][3] < -10 then
+			if OBJECT[a][2] > PLAYER_POS - 2.25 and OBJECT[a][2] < PLAYER_POS + 2.25 and OBJECT[a][3] > -STREET_SIZE - 2 and OBJECT[a][3] < -10 then
 				DAMAGE = DAMAGE + 50
 				OBJECT[a][2] = -200
 				sound.play(SMALL_CRASH, 2)
@@ -56,7 +58,7 @@ function game()
 				sound.play(SMALL_CRASH, 2)
 			end
 		elseif OBJECT[a][1] == 3 then
-			if OBJECT[a][2] > PLAYER_POS - 2.75 and OBJECT[a][2] < PLAYER_POS + 2.75 and OBJECT[a][3] > -STREET_SIZE - 2 and OBJECT[a][3] < -10 then
+			if OBJECT[a][2] > PLAYER_POS - 2.25 and OBJECT[a][2] < PLAYER_POS + 2.25 and OBJECT[a][3] > -STREET_SIZE - 2 and OBJECT[a][3] < -10 then
 				DAMAGE = DAMAGE + 50
 				OBJECT[a][2] = -200
 				sound.play(SMALL_CRASH, 2)
@@ -73,18 +75,18 @@ function game()
 	end
 	
 	if timer > 0 then
-		screen.print(string.len("Speed up!")/2 * 12, 240, "Speed Up!", color.new(0, 0, 0))
+		screen.print(GRAF, string.len("Speed up!")/2 * 12, 240, "Speed Up!", color.new(0, 0, 0))
 		timer = timer - 1
 	end
 	
-	screen.print(350, 250, "MPH: " .. SPEED * 100, color.new(255, 255, 255))
+	screen.print(GRAF, 350, 250, "MPH: " .. SPEED * 100, color.new(255, 255, 255))
 
 	--Add score
 	SCORE = SCORE + 1
 
 	drawDamage(2, 2, 200, 5)
-	drawScore(300, 2)
-	screen.print(300, 14, "Points: " .. points, color.new(234, 143, 35))
+	drawScore(300, 10)
+	screen.print(GRAF, 300, 30, "Points: " .. points, color.new(234, 143, 35))
 
 	scrollObject()
 	scrollCoins()
@@ -98,29 +100,29 @@ function game()
 		timer = 50
 	end
 	if SCORE == 2000 then
-		SPEED = 0.75
+		SPEED = 0.7
 		timer = 50
 	end
 	if SCORE == 3000 then
-		SPEED = 1
+		SPEED = 0.9
 		timer = 50
 		points_multiplier = 2
 	end
 	if SCORE == 4000 then
-		SPEED = 1.25
+		SPEED = 1.1
 		timer = 50
 	end
 	if SCORE == 5000 then
-		SPEED = 1.5
+		SPEED = 1.3
 		timer = 50
 	end
 	if SCORE == 6000 then
-		SPEED = 1.75
+		SPEED = 1.5
 		timer = 50
 	end
 	if SCORE > 7000 then
-		SPEED = 2
-		screen.print(200, 240, "Final Speed! Triple Points!")
+		SPEED = 1.7
+		screen.print(GRAF, 185, 240, "Final Speed! Triple Points!")
 		SCORE = SCORE + 1
 		points_multiplier = 3
 	end
