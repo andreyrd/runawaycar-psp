@@ -4,3 +4,8 @@
 1.1
 -cleaned up and organized code (frankdrey)
 -new coin ding sound (frankdrey)
+
+
+1.2
+-Cleaned code(10$man)
+-Trying out outlines on obstacles(10$man)

@@ -75,8 +75,13 @@ function game()
 	end
 	
 	if timer > 0 then
-		screen.print(GRAF, string.len("Speed up!")/2 * 12, 240, "Speed Up!", color.new(0, 0, 0))
-		timer = timer - 1
+		if SCORE > 3000 and SCORE < 4000 then
+			screen.print(GRAF, string.len("Speed up! Double Points!")/2 * 12, 240, "Speed up! Double Points!", color.new(0, 0, 0))
+			timer = timer - 1
+		else
+			screen.print(GRAF, string.len("Speed up!")/2 * 12, 240, "Speed Up!", color.new(0, 0, 0))
+			timer = timer - 1
+		end
 	end
 	
 	screen.print(GRAF, 350, 250, "MPH: " .. SPEED * 100, color.new(255, 255, 255))

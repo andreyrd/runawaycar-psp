@@ -75,16 +75,16 @@ function carSelect()
 			screen.print(GRAF, 0, 240, cars[option_select][1] .. " - Owned", color.new(0, 0, 0))
 		else
 			screen.print(GRAF, 0, 240, cars[option_select][1] .. " - Locked", color.new(0, 0, 0))
-			screen.print(GRAF, 0, 252, "Buy for " .. option_select * 3000, color.new(0, 0, 0))
+			screen.print(GRAF, 0, 252, "Buy for " .. option_select * 2000, color.new(0, 0, 0))
 		end
 	end
 	
 	if controls.press("cross") and current_car ~= option_select then
 		if cars[option_select][2] == 0 then
-			if points > option_select * 3000 then
+			if points > option_select * 2000 then
 				cars[option_select][2] = 1
 				cars_unlocked = cars_unlocked + 1
-				points = points - option_select * 3000
+				points = points - option_select * 2000
 			end
 		else
 			current_car = option_select
@@ -155,7 +155,7 @@ function loadGame()
 end
 
 function about()
-	screen.print(GRAF, 0, 0, "Game programmed by:", color.new(0, 0, 0))
+	screen.print(GRAF, 0, 0, "Game made by:", color.new(0, 0, 0))
 	screen.print(GRAF, 0, 40, "Frankdrey - Models, Menus, Misc. Code", color.new(0, 0, 0))
 	screen.print(GRAF, 0, 80, "10$man - Gameplay", color.new(0, 0, 0))
 	screen.print(GRAF, 0, 120, "spereksta - Music", color.new(0, 0, 0))

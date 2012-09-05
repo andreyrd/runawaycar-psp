@@ -26,12 +26,11 @@ math.randomseed(os.time())
 
 -- The different obstacles
 -- cone_obj = model.load("MODELS/CONE.OBJ")
-dumpster_obj = model.load("MODELS/GREENDUMPSTER.OBJ")
-trashcan_obj = model.load("MODELS/TRASHCAN.OBJ")
-roadblock_obj = model.load("MODELS/ROADBLOCK_GRAY.OBJ")
+dumpster_obj = model.load("MODELS/GREENDUMPSTER.OBJ", 1, color.new(0, 0, 0))
+trashcan_obj = model.load("MODELS/TRASHCAN.OBJ", 1, color.new(0, 0, 0))
+roadblock_obj = model.load("MODELS/ROADBLOCK_GRAY.OBJ", 1, color.new(0, 0, 0))
 
 -- the different street objects
-turn_obj = model.load("MODELS/ROAD_TURN.OBJ")
 street_obj = model.load("MODELS/ROAD.OBJ")
 coin_obj = model.load("MODELS/COIN.OBJ")
 
