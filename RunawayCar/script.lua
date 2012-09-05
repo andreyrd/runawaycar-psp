@@ -25,7 +25,7 @@ while true do
 	if gamemode == 2 then
 		game()
 		CAR:position(PLAYER_POS, PLAYER_HEIGHT, -STREET_SIZE)
-		CAR:rotation(0,Y_ROT, 0)
+		-- CAR:rotation(0,Y_ROT, 0) Da f?
 		CAR:blit()
 	elseif gamemode == 1 then
 		menu()

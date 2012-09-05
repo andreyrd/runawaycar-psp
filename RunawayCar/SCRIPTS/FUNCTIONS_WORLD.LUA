@@ -102,7 +102,7 @@ function scrollStreet()
 	end
 end
 
---Scrolls CLouds
+--Scrolls Clouds
 function scrollClouds()
 	for a = 1, #CLOUD do
 		if CLOUD[a][1] < 15 then
