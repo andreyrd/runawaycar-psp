@@ -32,7 +32,7 @@ roadblock_obj = model.load("MODELS/ROADBLOCK_GRAY.OBJ")
 
 -- the different street objects
 street_obj = model.load("MODELS/ROAD.OBJ")
-coin_obj = model.load("MODELS/COIN.OBJ", 1, color.new(0, 0, 0))
+coin_obj = model.load("MODELS/COIN.OBJ")
 
 
 -- Scenery :)
