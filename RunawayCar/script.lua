@@ -1,39 +1,22 @@
 -- Here's the main script file for our Runaway car game.
 
--- Load all of the scripts.
-
-dofile("SCRIPTS/FUNCTIONS.LUA")
-
+-- Run through the load file
 dofile("SCRIPTS/LOAD.LUA")
 
--- This contains test functions for scrolling the street.
-
-dofile("SCRIPTS/SCROLL.LUA")
-
-
-dofile("SCRIPTS/GAME.LUA")
-dofile("SCRIPTS/MENU.LUA")
-dofile("SCRIPTS/PAUSE.LUA")
-dofile("SCRIPTS/OPTIONS.LUA")
-dofile("SCRIPTS/CAR_SELECT.LUA")
-dofile("SCRIPTS/CRASH.LUA")
--- Here looks like a good place to display the NeoFlash Splash screen.
-
+--Set the lighting up
 drawLight(1, 0, 11, -51)
 
+--Set the cpu speed to 333 mhz
 os.cpu(333)
 
--- This will just show the street to make sure everything is alright
-
+--play deh music
 sound.play(MSC, 1)
 
 while true do
-	screen.clear(color.new(135, 206, 250))
+	screen.clear(color_sky)
 	controls.read()
 	
 	loopMusic()
-	
-	
 	
 	scrollStreet()
 	
@@ -55,7 +38,7 @@ while true do
 		CAR:rotation(0,Y_ROT, 0)
 		CAR:blit()
 	elseif gamemode == 4 then
-		options()
+		about()
 		CAR:position(PLAYER_POS, PLAYER_HEIGHT, -STREET_SIZE)
 		CAR:rotation(0,Y_ROT, 0)
 		CAR:blit()
