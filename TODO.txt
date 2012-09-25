@@ -1,0 +1,17 @@
+-record own sounds
+ -short crash
+ -long crash
+ -thump
+ -screech
+-models
+ -own car
+ -different building types, more detail
+ -new clouds
+ -new detailed coin
+ -cone
+ -new dumpster with more detail
+ -new roadblock with a wannabe "texture"
+ -new detailed trash can
+-garage shows car preview
+-slow down game, make it a bit easier
+-new terrains every set distance
