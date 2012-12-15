@@ -1,5 +1,5 @@
 Code: 10$man, frank
-3D Models: frank, http://www.3dm3.com/modelsbank/model221.htm, 10$man
+3D Models: frank, 10$man
 Music: Scott Pereksta
 Sound effects:
   -Crashes: http://www.freesounds.org
