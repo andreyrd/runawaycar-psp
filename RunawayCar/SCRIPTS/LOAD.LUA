@@ -22,7 +22,7 @@ color_white = color.new(255, 255, 255)
 GRAF = font.load("degrassi.pgf")
 
 --Get Random
-math.randomseed(os.time())
+math.randomseed(os.time() * batt.percent() * batt.temp())
 
 -- The different obstacles
 -- cone_obj = model.load("MODELS/CONE.OBJ")
